@@ -1,11 +1,13 @@
 #include <Windows.h>
-#include "Player.h"
+#include "SDK/Player.h"
 
+uintptr_t baseAddr;
 
 void tickHandler() {
-    uintptr_t addr = (uintptr_t)GetModuleHandleA("ac_client.exe");
+    if(!baseAddr)
+        baseAddr = (uintptr_t)GetModuleHandleA("ac_client.exe");
 
-    Player* player = *(Player**)(addr + 0x10F4F4);
+    Player* player = *(Player**)(baseAddr + 0x10F4F4);
     player->Health = 9999;
     player->Armor = 9999;   
 }
