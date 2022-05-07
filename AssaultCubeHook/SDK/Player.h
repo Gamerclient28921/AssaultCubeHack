@@ -31,7 +31,7 @@ public:
 private:
 	char pad_0154[12]; //0x0154
 public:
-	int64_t knifedelay; //0x0160
+	int32_t knifedelay; //0x0160
 private:
 	char pad_0168[3836]; //0x0168
 };
